@@ -1,6 +1,13 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    throw new Error("Throw an error");
+  }, []);
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
@@ -38,6 +45,15 @@ export default function Home() {
           priority
         />
       </div>
+
+      <button
+        onClick={() => {
+          throw new Error("This is an intentional error");
+        }}
+        className="px-10 bg-red-600 py-3 font-semibold"
+      >
+        Throw Error
+      </button>
 
       <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
         <a
